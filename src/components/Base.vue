@@ -26,6 +26,28 @@ export default {
     deleteInfo() {
       this.info.pop();
     }
+  },
+  // lifecycle hooks
+  beforeCreate() {
+
+    alert("beforeCreate");
+  },
+  created() {
+    // good for catching data
+    alert("created");
+  },
+  beforeMount() {
+    alert("beforeMount");
+  },
+  mounted() {
+    // good for manipulating data
+    alert("mounted");
+  },
+  beforeUpdate() {
+    alert("beforeUpdate");
+  },
+  updated() {
+    alert("updated");
   }
 };
 </script>
