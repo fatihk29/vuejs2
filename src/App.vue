@@ -1,51 +1,32 @@
 <template>
   <div>
-    <app-header v-bind:title="title"></app-header>
-    <app-bases v-bind:info="info"></app-bases>
-    <app-footer
-      v-bind:title="title"
-      v-on:changeTitle="updateTitle($event)"
-    ></app-footer>
+    <form-helper>
+      <div slot="form-header">
+        <h3>This is the title of the form</h3>
+        <p>Information about the form</p>
+      </div>
+      <div slot="form-fields">
+        <input type="text" placeholder="name" required />
+        <input type="password" placeholder="password" required />
+      </div>
+      <div slot="form-controls">
+        <button v-on:click="handleSubmit">Submit</button>
+      </div>
+    </form-helper>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
-import Base from "./components/Base.vue";
+import formHelper from "./components/formHelper.vue";
 
 export default {
   components: {
-    "app-header": Header,
-    "app-footer": Footer,
-    "app-bases": Base
+    "form-helper": formHelper
   },
   data() {
     return {
-      info: [
-        {
-          name: "aquamarine",
-          speciality: "Complex",
-          show: false
-        },
-        {
-          name: "blue",
-          speciality: "soft",
-          show: false
-        },
-        {
-          name: "return",
-          speciality: "null",
-          show: false
-        },
-        {
-          name: "green",
-          speciality: "double",
-          show: false
-        }
-      ],
-      title: "Header Title",
-      footerTitle: "Footer Title"
+      title: "I am a dynamic slot title",
+      text: "I am the paragraph text for the slot"
     };
   },
   methods: {
